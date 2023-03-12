@@ -1,4 +1,4 @@
-import { renderHook, act } from "@testing-library/react-hooks";
+import { renderHook } from "@testing-library/react-hooks";
 import { useCommonDate } from "../../app/core/customHooks";
 
 describe("useCommaSeparated tests", () => {

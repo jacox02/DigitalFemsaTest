@@ -1,6 +1,6 @@
 import { IProductService } from "../contracts/IProduct.service";
 import { Movement } from "../types/Movement.type";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 
 export class ProductService implements IProductService {
   public async GetAllProducts(): Promise<Movement[]> {
@@ -11,6 +11,9 @@ export class ProductService implements IProductService {
       )
       .then((response) => {
         dataObtained = response.data;
+      })
+      .catch((err: AxiosError) => {
+        console.log(err.message);
       });
     return dataObtained;
   }

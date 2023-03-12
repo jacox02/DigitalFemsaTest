@@ -11,7 +11,7 @@ export const movementsSlice = createSlice({
   name: "movements",
   initialState: initialState,
   reducers: {
-    init: (state: any, { payload }: any) => {
+    init: (state: any, { payload }: PayloadAction<Movement[]>) => {
       state.movements = payload;
       state.filteredMovements = state.movements;
     },

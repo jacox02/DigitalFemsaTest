@@ -8,15 +8,14 @@ import FiltersContainer from '../molecules/FiltersContainer';
 
 import MovementsContainer from '../organisms/MovementsContainer';
 import {ProductService} from "../../core/services/IProduct.service";
-import {Movement} from "../../core/types/Movement.type";
+
+let _productService = new ProductService();
 
 export default function Home({ navigation }: any) {
     useEffect(() => {
-        let products: Movement[] = [];
-        new ProductService().GetAllProducts().then(data => {
-            products = data;
+        _productService.GetAllProducts().then(data => {
+            store.dispatch(init(data))
         });
-        store.dispatch(init(products))
     }, [])
 
     return (
