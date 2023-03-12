@@ -11,18 +11,18 @@ export default function FiltersContainer() {
         <View >
             {Filter == 'ALL' ? (
                 <View style={styles.buttonContainer}>
-                    <Button title="Ganados" onPress={() => {
+                    <Button title="Ganados"  width="45%" onPress={() => {
                         setFilter('WON')
                         store.dispatch(filter('WON'))
                     }}></Button>
-                    <Button title="Canjeados" onPress={() => {
+                    <Button title="Canjeados" width="45%" onPress={() => {
                         setFilter('PAID')
                         store.dispatch(filter('PAID'))
                     }}></Button>
                 </View>
             ) : (
                 <View style={styles.buttonContainer}>
-                    <Button title="Todos" onPress={() => {
+                    <Button title="Todos" width="100%" onPress={() => {
                         setFilter('ALL')
                         store.dispatch(filter('ALL'))
                     }}></Button>

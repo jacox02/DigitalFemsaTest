@@ -1,9 +1,11 @@
 import { FlatList, ScrollView, Text, TouchableOpacity, View, StyleSheet } from 'react-native'
 import { Fragment, useEffect, useState } from 'react'
+
 import BaseMovement from '../molecules/Movement'
 import { Movement } from '../../core/types/Movement.type'
 import { store } from '../../redux/stores/movements.store'
 import Title from '../atoms/Title'
+
 export default function MovementsContainer({ navigation }: any) {
     const [Movements, setMovements] = useState<Movement[]>([])
     useEffect(() => {

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Movement } from '../../core/types/Movement.type';
 import { useCommaSeparated, useCommonDate } from '../../core/customHooks';
 import Title from '../atoms/Title';
+import Button from '../atoms/Button';
 
 export default function MovementDetails({ route, navigation }: any) {
     const [Movement, setMovement] = useState<Movement>({
@@ -10,7 +11,7 @@ export default function MovementDetails({ route, navigation }: any) {
         createdAt: new Date().toString(),
         product: "",
         points: 0,
-        image: "",
+        image: "../../../assets/Placeholder.png",
         is_redemption: false
     })
 
@@ -21,18 +22,23 @@ export default function MovementDetails({ route, navigation }: any) {
     return (
         <View style={styles.container}>
             <View style={styles.headerContainer}>
-                <Title text={Movement.product} weight='800' size={24} height={24} />
+                <Title text={Movement.product} weight='800' size={24} height={26} />
             </View>
-            <View style={
-                styles.imageContainer
-            }>
-                <Image source={{ uri: '../../../assets/Placeholder_view_vector 2.png' }} style={{
-                    width: 353,
-                    height: 350,
-                    borderRadius: 10
-                }}></Image>
-            </View>
-            <View style={styles.infoContainer} >
+            <View style={{
+                paddingLeft: 20,
+                paddingRight: 20,
+            }}>
+                <View style={
+                    styles.imageContainer
+                }>
+                    <Image
+                        source={{ uri: Movement.image }}
+                        style={{
+                            width: 353,
+                            height: 350,
+                            borderRadius: 10
+                        }}></Image>
+                </View>
                 <View style={{ paddingTop: 32 }}>
                     <Title text={'Detalles del producto:'} weight='800' size={14} height={19} color='#9B9898' />
                 </View>
@@ -45,17 +51,17 @@ export default function MovementDetails({ route, navigation }: any) {
                 <View style={{ paddingTop: 32 }}>
                     <Title text={`${useCommaSeparated(Movement.points.toString())} puntos`} weight='800' size={24} height={33} />
                 </View>
+                <View style={{
+                    width: '100%',
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                    paddingTop: '1%',
+
+                }}>
+                    <Button title='Aceptar' onPress={() => { navigation.goBack() }} width='100%'></Button>
+                </View>
             </View>
-            <View style={{
-                width: '100%',
-                flexDirection: 'row',
-                justifyContent: 'center',
-                paddingTop: '1%'
-            }}>
-                <TouchableOpacity style={styles.acceptButton}>
-                    <Title text='Aceptar' color='#fff' weight='800' />
-                </TouchableOpacity>
-            </View>
+
         </View>
     )
 }
@@ -66,6 +72,7 @@ const styles = StyleSheet.create({
         alignItems: "flex-start",
         justifyContent: 'flex-start',
         overflow: 'scroll',
+
     },
     acceptButton: {
         backgroundColor: 'blue',
@@ -101,7 +108,5 @@ const styles = StyleSheet.create({
         width: '100%',
         justifyContent: 'center'
     },
-    infoContainer: {
-        paddingLeft: 20,
-    }
+
 });

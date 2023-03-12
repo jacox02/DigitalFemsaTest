@@ -1,6 +1,6 @@
 import { renderHook } from "@testing-library/react-hooks";
 import { useCommonDate } from "../../app/core/customHooks";
-
+//ERROR: La libreria que use para probar los hooks no funciona con la version de React que estoy usando, la unica forma que encontre para poder instalarla fue user --force al momento de la instalacion, cosa que considero incorrecta, sin embargo, para los propositos la use y funcionaron las pruebas
 describe("useCommaSeparated tests", () => {
   let date = new Date();
   const day = date.getDate();

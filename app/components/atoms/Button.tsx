@@ -1,5 +1,8 @@
-import { View, Text, Touchable, TouchableOpacity } from 'react-native'
-export default function Button({ title, onPress }: any) {
+import { View, Text, Touchable, TouchableOpacity, GestureResponderEvent } from 'react-native'
+import { ButtonProps } from '../../core/types/ButtonProps.type'
+
+
+export default function Button(props: ButtonProps) {
     return (
         <TouchableOpacity style={{
             backgroundColor: '#334FFA',
@@ -7,10 +10,12 @@ export default function Button({ title, onPress }: any) {
             flexDirection: 'row',
             justifyContent: 'center',
             alignItems: 'center',
-            width: 160,
+            width: props.width,
             height: 50
         }}
-            onPress={onPress}
+            onPress={props.onPress}
+            accessibilityLabel={props.title}
+            testID={`test-${props.title}-button`}
         >
             <Text style={{
                 fontFamily: 'Avenir',
@@ -20,7 +25,7 @@ export default function Button({ title, onPress }: any) {
                 lineHeight: 16,
                 color: '#FFFFFF',
             }}>
-                {title}
+                {props.title}
             </Text>
         </TouchableOpacity>
     )
