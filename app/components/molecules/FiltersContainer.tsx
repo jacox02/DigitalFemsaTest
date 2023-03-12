@@ -8,16 +8,16 @@ export default function FiltersContainer() {
     useEffect(() => {
     }, [Filter])
     return (
-        <View >
+        <View testID="filters-container">
             {Filter == 'ALL' ? (
                 <View style={styles.buttonContainer}>
                     <Button title="Ganados"  width="45%" onPress={() => {
-                        setFilter('WON')
-                        store.dispatch(filter('WON'))
+                        setFilter('NOT_REDEMED')
+                        store.dispatch(filter('NOT_REDEMED'))
                     }}></Button>
                     <Button title="Canjeados" width="45%" onPress={() => {
-                        setFilter('PAID')
-                        store.dispatch(filter('PAID'))
+                        setFilter('REDEMED')
+                        store.dispatch(filter('REDEMED'))
                     }}></Button>
                 </View>
             ) : (

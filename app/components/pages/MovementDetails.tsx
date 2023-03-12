@@ -21,7 +21,7 @@ export default function MovementDetails({ route, navigation }: any) {
 
     return (
         <View style={styles.container}>
-            <View style={styles.headerContainer}>
+            <View testID='test-product-name-label' style={styles.headerContainer}>
                 <Title text={Movement.product} weight='800' size={24} height={26} />
             </View>
             <View style={{
@@ -32,6 +32,7 @@ export default function MovementDetails({ route, navigation }: any) {
                     styles.imageContainer
                 }>
                     <Image
+                        testID='test-product-image'
                         source={{ uri: Movement.image }}
                         style={{
                             width: 353,
@@ -39,17 +40,17 @@ export default function MovementDetails({ route, navigation }: any) {
                             borderRadius: 10
                         }}></Image>
                 </View>
-                <View style={{ paddingTop: 32 }}>
+                <View testID='test-product-date-label' style={{ paddingTop: 32 }}>
                     <Title text={'Detalles del producto:'} weight='800' size={14} height={19} color='#9B9898' />
                 </View>
-                <View style={{ paddingTop: 19 }}>
-                    <Title text={`Comprado el ${useCommonDate(Movement.createdAt)}`} weight='800' size={16} height={22} />
+                <View testID='test-product-date-value' style={{ paddingTop: 19 }}>
+                    <Title  text={`Comprado el ${useCommonDate(Movement.createdAt)}`} weight='800' size={16} height={22} />
                 </View>
-                <View style={{ paddingTop: 20 }}>
-                    <Title text={'Con esta compra acumulaste:'} weight='800' size={14} height={19} color='#9B9898' />
+                <View testID='test-product-points-label' style={{ paddingTop: 20 }}>
+                    <Title  text={'Con esta compra acumulaste:'} weight='800' size={14} height={19} color='#9B9898' />
                 </View>
-                <View style={{ paddingTop: 32 }}>
-                    <Title text={`${useCommaSeparated(Movement.points.toString())} puntos`} weight='800' size={24} height={33} />
+                <View testID='test-product-points-value' style={{ paddingTop: 32 }}>
+                    <Title  text={`${useCommaSeparated(Movement.points.toString())} puntos`} weight='800' size={24} height={33} />
                 </View>
                 <View style={{
                     width: '100%',

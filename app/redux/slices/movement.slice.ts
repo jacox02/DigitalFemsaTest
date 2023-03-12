@@ -21,12 +21,12 @@ export const movementsSlice = createSlice({
         case "ALL":
           filteredMovements = state.movements;
           break;
-        case "WON":
+        case "NOT_REDEMED":
           filteredMovements = state.movements.filter(
             (movement: Movement) => movement.is_redemption === false
           );
           break;
-        case "PAID":
+        case "REDEMED":
           filteredMovements = state.movements.filter(
             (movement: Movement) => movement.is_redemption === true
           );

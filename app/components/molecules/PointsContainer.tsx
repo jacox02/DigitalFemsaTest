@@ -13,7 +13,7 @@ export default function PointsContainer() {
     }, [userPoints])
 
     return (
-        <View style={styles.viewContainer}>
+        <View style={styles.viewContainer} testID='test-PointsContainer-component'>
             <Text style={styles.pointsLabel}>Tus puntos</Text>
             <View style={styles.pointCard}>
                 <View style={styles.pointsContainer}>
@@ -23,7 +23,7 @@ export default function PointsContainer() {
                         </Text>
                     </View>
                     <View>
-                        <Text style={styles.pointsCounter}>
+                        <Text style={styles.pointsCounter} testID='test-points-container'>
                             {useCommaSeparated(Points.toString())} Pts
                         </Text>
                     </View>

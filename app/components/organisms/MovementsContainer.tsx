@@ -1,10 +1,11 @@
-import { FlatList, ScrollView, Text, TouchableOpacity, View, StyleSheet } from 'react-native'
-import { Fragment, useEffect, useState } from 'react'
+import { ScrollView, TouchableOpacity, View, Text, StyleSheet } from 'react-native'
+import React, { PureComponent, useEffect, useMemo, useState } from 'react'
 
 import BaseMovement from '../molecules/Movement'
 import { Movement } from '../../core/types/Movement.type'
 import { store } from '../../redux/stores/movements.store'
 import Title from '../atoms/Title'
+
 
 export default function MovementsContainer({ navigation }: any) {
     const [Movements, setMovements] = useState<Movement[]>([])
@@ -13,31 +14,41 @@ export default function MovementsContainer({ navigation }: any) {
             setMovements(store.getState().filteredMovements)
         })
     })
+    const memoizedList = useMemo(() => {
+        return Movements.map((item, index) =>
+        (
+            <TouchableOpacity
+                key={index}
+                testID={`movement-${index}-row`}
+                onPress={() => navigation.navigate('MovementDetails', item)}
+                style={
+                    {
+                        flexDirection: 'row',
+                        width: '100%',
+                        marginTop: '2%'
+                    }
+                }>
+
+                <BaseMovement key={index} movement={item}></BaseMovement>
+            </TouchableOpacity>
+        )
+        );
+    }, [Movements]);
+
+
     return (
         <View style={
             styles.container
         } >
-            <Title text="Your movements" weight="800" size={21} color="#9B9898"></Title>
-            <ScrollView style={{
-                borderRadius: 10
-            }}>
+            <Title text="Tus movimientos" weight="800" size={21} color="#9B9898"></Title>
+            <ScrollView
+                bounces={true}
+                scrollEventThrottle={10}
+                style={{
+                    borderRadius: 10
+                }}>
                 {
-                    Movements.map((_movement, _index) => {
-                        return (
-                            <TouchableOpacity
-                                key={_index}
-                                onPress={() => navigation.navigate('MovementDetails', _movement)}
-                                style={
-                                    {
-                                        flexDirection: 'row',
-                                        width: '100%',
-                                        marginTop: '2%'
-                                    }
-                                }>
-                                <BaseMovement key={_index} movement={_movement}></BaseMovement>
-                            </TouchableOpacity>
-                        )
-                    })
+                    memoizedList
                 }
             </ScrollView>
         </View>

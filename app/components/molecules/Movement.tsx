@@ -1,11 +1,9 @@
 import { View, StyleSheet, Text, Image, Button } from 'react-native'
-import { Movement } from '../../core/types/Movement.type'
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { useCommaSeparated, useCommonDate } from '../../core/customHooks';
-type Props = {
-    movement: Movement
-}
-export default function BaseMovement({ movement }: Props) {
+import { BaseMovementProps } from '../../core/types/BaseMovementProps.type';
+
+export default function BaseMovement({ movement }: BaseMovementProps) {
     return (
         <View style={styles.container}>
             <View style={styles.imageContainer}>
@@ -16,9 +14,9 @@ export default function BaseMovement({ movement }: Props) {
                     <Text style={styles.productName}>{movement.product}</Text>
                     <Text>{useCommonDate(movement.createdAt)}</Text>
                 </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+                <View style={styles.pointsContiner}>
                     <Text style={{ ...styles.movementPoints, color: movement.is_redemption ? '#FF0000' : '#00B833' }}>
-                        {movement.is_redemption ? '-' : '+'}
+                        {movement.is_redemption==true ? '-' : '+'}
                     </Text>
                     <Text style={styles.movementPoints}>{useCommaSeparated(movement.points.toString())}</Text>
                     <Ionicons size={18} name='chevron-forward-outline'></Ionicons>
@@ -72,5 +70,5 @@ const styles = StyleSheet.create({
         fontWeight: '800',
         fontSize: 16,
         lineHeight: 22,
-    },
+    }, pointsContiner: { flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }
 })

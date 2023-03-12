@@ -1,1 +1,1 @@
-type FilterPayload = "ALL" | "WON" | "PAID";
+type FilterPayload = "ALL" | "REDEMED" | "NOT_REDEMED";

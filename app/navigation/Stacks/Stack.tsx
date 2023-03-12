@@ -1,19 +1,21 @@
-import { createNativeStackNavigator } from "@react-navigation/native-stack"
+import * as React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+
 import MovementDetails from "../../components/pages/MovementDetails";
 import Home from "../../components/pages/Home";
 
-const Stack = createNativeStackNavigator();
+const { Screen, Navigator } = createStackNavigator();
 
-export const Navigation = () => {
+export default function Navigation() {
     return (
-        <Stack.Navigator
+        <Navigator
             initialRouteName="Home"
             screenOptions={{
                 headerShown: false,
             }}
         >
-            <Stack.Screen name="Home" component={Home}></Stack.Screen>
-            <Stack.Screen name="MovementDetails" component={MovementDetails}></Stack.Screen>
-        </Stack.Navigator>
+            <Screen name="Home" component={Home}></Screen>
+            <Screen name="MovementDetails" component={MovementDetails}></Screen>
+        </Navigator>
     )
 }
