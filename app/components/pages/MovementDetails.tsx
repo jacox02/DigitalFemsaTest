@@ -68,46 +68,44 @@ export default function MovementDetails({ route, navigation }: any) {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        height: '100%',
-        alignItems: "flex-start",
-        justifyContent: 'flex-start',
-        overflow: 'scroll',
-
+  container: {
+    height: "100%",
+    alignItems: "flex-start",
+    justifyContent: "flex-start",
+    overflow: "scroll",
+  },
+  acceptButton: {
+    backgroundColor: "blue",
+    padding: 10,
+    borderRadius: 10,
+    width: "90%",
+    flexDirection: "row",
+    justifyContent: "center",
+  },
+  headerContainer: {
+    backgroundColor: "#CFD6FF",
+    paddingTop: 110,
+    width: "100%",
+    paddingLeft: 20,
+    paddingBottom: 24,
+  },
+  headerTitle: {
+    fontFamily: "OperatorMono",
+    fontWeight: "800",
+    fontSize: 24,
+  },
+  imageContainer: {
+    shadowColor: "#000000",
+    shadowOffset: {
+      width: 0,
+      height: 4,
     },
-    acceptButton: {
-        backgroundColor: 'blue',
-        padding: 10,
-        borderRadius: 10,
-        width: '90%',
-        flexDirection: 'row',
-        justifyContent: 'center'
-    },
-    headerContainer: {
-        backgroundColor: '#CFD6FF',
-        paddingTop: 110,
-        width: '100%',
-        paddingLeft: 20,
-        paddingBottom: 24,
-    },
-    headerTitle: {
-        fontFamily: 'Avenir',
-        fontWeight: "800",
-        fontSize: 24,
-    },
-    imageContainer: {
-        shadowColor: '#000000',
-        shadowOffset: {
-            width: 0,
-            height: 4,
-        },
-        paddingTop: 19,
-        shadowOpacity: 0.5,
-        shadowRadius: 2,
-        elevation: 8,
-        flexDirection: 'row',
-        width: '100%',
-        justifyContent: 'center'
-    },
-
+    paddingTop: 19,
+    shadowOpacity: 0.5,
+    shadowRadius: 2,
+    elevation: 8,
+    flexDirection: "row",
+    width: "100%",
+    justifyContent: "center",
+  },
 });

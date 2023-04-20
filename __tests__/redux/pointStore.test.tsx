@@ -70,7 +70,6 @@ describe('Test store mutations', () => {
         store.dispatch(filter('ALL'))
         let filteredState = store.getState().filteredMovements;
         //Assert
-        console.log(filteredState)
         expect(filteredState.length).toBeGreaterThan(1)
         expect(filteredState).toEqual(
             expect.arrayContaining([

@@ -34,61 +34,60 @@ export default function PointsContainer() {
 }
 
 const styles = StyleSheet.create({
-    viewContainer: {
-        alignItems: "flex-start",
-        width: '100%',
-        height: '30%',
-        justifyContent: 'flex-start',
-        overflow: 'scroll',
-        paddingTop: 20,
+  viewContainer: {
+    alignItems: "flex-start",
+    width: "100%",
+    height: "30%",
+    justifyContent: "flex-start",
+    overflow: "scroll",
+    paddingTop: 20,
+  },
+  pointsContainer: {
+    shadowColor: "#000000",
+    shadowOffset: {
+      width: 0,
+      height: 4,
     },
-    pointsContainer: {
-        shadowColor: '#000000',
-        shadowOffset: {
-            width: 0,
-            height: 4,
-        },
-        shadowOpacity: 0.5,
-        shadowRadius: 4,
-        elevation: 8,
-        marginTop: 20,
-        backgroundColor: '#334FFA',
-        borderRadius: 20,
-        width: 286,
-        height: 143
-    },
-    pointsLabel: {
-        color: '#9B9898',
-        fontFamily: 'Avenir',
-        fontWeight: '800',
-        fontSize: 21,
-        fontStyle: 'normal'
-    },
-    monthLabel: {
-        paddingTop: 15,
-        paddingLeft: 19,
-        color: '#fff',
-        fontFamily: 'Avenir',
-        fontWeight: '800',
-        fontSize: 21,
-        fontStyle: 'normal'
-    },
-    pointsCounter: {
-        paddingTop: 20,
-        textAlign: 'center',
-        fontFamily: 'Avenir',
-        fontStyle: 'normal',
-        fontWeight: '800',
-        fontSize: 32,
-        lineHeight: 44,
-        color: '#FFFFFF',
-    },
-    pointCard:
-    {
-        flex: 1,
-        alignItems: "center",
-        width: '100%',
-        justifyContent: 'flex-start',
-        overflow: 'scroll',
-    }
-})
+    shadowOpacity: 0.5,
+    shadowRadius: 4,
+    elevation: 8,
+    marginTop: 20,
+    backgroundColor: "#334FFA",
+    borderRadius: 20,
+    width: 286,
+    height: 143,
+  },
+  pointsLabel: {
+    color: "#9B9898",
+    fontFamily: "OperatorMono",
+    fontWeight: "800",
+    fontSize: 21,
+    fontStyle: "normal",
+  },
+  monthLabel: {
+    paddingTop: 15,
+    paddingLeft: 19,
+    color: "#fff",
+    fontFamily: "OperatorMono",
+    fontWeight: "800",
+    fontSize: 21,
+    fontStyle: "normal",
+  },
+  pointsCounter: {
+    paddingTop: 20,
+    textAlign: "center",
+    fontFamily: "OperatorMono",
+    fontStyle: "normal",
+    fontWeight: "800",
+    fontSize: 32,
+    lineHeight: 44,
+    color: "#FFFFFF",
+  },
+  pointCard: {
+    flex: 1,
+    alignItems: "center",
+    width: "100%",
+    justifyContent: "flex-start",
+    overflow: "scroll",
+  },
+});

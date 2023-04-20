@@ -1,26 +1,27 @@
 import { StatusBar } from 'expo-status-bar';
 import { useFonts } from 'expo-font';
-import React, { useCallback } from 'react';
-import * as SplashScreen from 'expo-splash-screen';
+import React, { useCallback, useEffect } from "react";
+import * as SplashScreen from "expo-splash-screen";
 
+import { NavigationContainer } from "@react-navigation/native";
+import Navigation from "./app/navigation/Stacks/Stack";
+import { store } from "./app/redux/stores/movements.store";
+import { Provider } from "react-redux";
 
-import { NavigationContainer } from '@react-navigation/native';
-import Navigation from './app/navigation/Stacks/Stack';
-import { store } from './app/redux/stores/movements.store';
-import { Provider } from 'react-redux'
-
-
-// SplashScreen.preventAutoHideAsync();
+SplashScreen.preventAutoHideAsync();
 export default function App() {
-  const [fontsLoaded] = useFonts({
-    'Avenir': require('./assets/fonts/Avenir-Regular.ttf'),
+  const [fontsLoaded, error] = useFonts({
+    OperatorMono: require("./assets/fonts/OperatorMonoLig-Book.otf"),
   });
-  const onLayoutRootView = useCallback(async () => {
+
+  useCallback(async () => {
     if (fontsLoaded) {
       await SplashScreen.hideAsync();
     }
-    console.log(fontsLoaded);
+  }, [fontsLoaded]);
 
+  useEffect(() => {
+    fontsLoaded === true && SplashScreen.hideAsync();
   }, [fontsLoaded]);
 
   if (!fontsLoaded) {
@@ -31,7 +32,7 @@ export default function App() {
     <Provider store={store}>
       <NavigationContainer>
         <Navigation></Navigation>
-         <StatusBar style="auto" />
+        <StatusBar style="auto" />
       </NavigationContainer>
     </Provider>
   );
